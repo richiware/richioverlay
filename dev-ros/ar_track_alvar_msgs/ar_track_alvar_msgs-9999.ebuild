@@ -3,8 +3,9 @@
 # $Id$
 
 EAPI=5
+
 ROS_REPO_URI="https://github.com/sniekum/ar_track_alvar_msgs"
-SRC_URI="https://github.com/sniekum/ar_track_alvar_msgs/archive/0.5.1.tar.gz"
+EGIT_BRANCH="filterlibrary"
 KEYWORDS="~amd64 ~arm"
 CATKIN_HAS_MESSAGES=yes
 

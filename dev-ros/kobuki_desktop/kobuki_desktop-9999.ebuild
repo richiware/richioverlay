@@ -5,7 +5,6 @@
 EAPI=5
 CATKIN_HAS_MESSAGES=yes
 ROS_REPO_URI="https://github.com/yujinrobot/kobuki_desktop"
-SRC_URI="https://github.com/yujinrobot/kobuki_desktop/archive/0.5.0.tar.gz"
 KEYWORDS="~amd64 ~arm"
 
 inherit ros-catkin

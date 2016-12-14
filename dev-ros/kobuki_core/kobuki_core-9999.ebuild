@@ -3,20 +3,18 @@
 # $Id$
 
 EAPI=5
-
-ROS_REPO_URI="https://github.com/orbbec/ros_astra_launch"
-KEYWORDS="~amd64 ~arm"
 CATKIN_HAS_MESSAGES=yes
-PYTHON_COMPAT=()
+ROS_REPO_URI="https://github.com/yujinrobot/kobuki_core"
+KEYWORDS="~amd64 ~arm"
 
 inherit ros-catkin
 
-DESCRIPTION="Orbbec Astra launch"
+DESCRIPTION="Core (non-ros) kobuki packages"
 LICENSE="BSD"
 SLOT="0"
 IUSE=""
 
-RDEPEND="
-dev-ros/ros_astra_camera
+RDEPEND="dev-ros/ecl_navigation
+<dev-embedded/ftdi_eeprom-1.0
 "
 DEPEND="${RDEPEND}"

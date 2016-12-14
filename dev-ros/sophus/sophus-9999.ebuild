@@ -3,20 +3,17 @@
 # $Id$
 
 EAPI=5
-
-ROS_REPO_URI="https://github.com/orbbec/ros_astra_launch"
-KEYWORDS="~amd64 ~arm"
 CATKIN_HAS_MESSAGES=yes
-PYTHON_COMPAT=()
+ROS_REPO_URI="https://github.com/stonier/sophus"
+KEYWORDS="~amd64 ~arm"
+PYTHON_COMPAT=
 
 inherit ros-catkin
 
-DESCRIPTION="Orbbec Astra launch"
+DESCRIPTION="Build environment tools and utilities for the embedded control libraries"
 LICENSE="BSD"
 SLOT="0"
 IUSE=""
 
-RDEPEND="
-dev-ros/ros_astra_camera
-"
+RDEPEND="dev-cpp/eigen"
 DEPEND="${RDEPEND}"
