@@ -1,0 +1,2 @@
+[0.402s] [34mcolcon[0m [1;30mDEBUG[0m [32mCommand line arguments: ['/usr/lib/python-exec/python3.6/colcon', 'metadata'][0m
+[0.402s] [34mcolcon[0m [1;30mDEBUG[0m [32mParsed command line arguments: Namespace(log_base='log', log_level=None, main=<bound method MetadataVerb.main of <colcon_metadata.verb.metadata.MetadataVerb object at 0x7f72e11b7c18>>, subverb_name=None, verb_name='metadata')[0m
