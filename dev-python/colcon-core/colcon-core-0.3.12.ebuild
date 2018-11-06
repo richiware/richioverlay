@@ -22,6 +22,7 @@ DEPEND="dev-python/coloredlogs[${PYTHON_USEDEP}]
         dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
         dev-python/pytest-runner[${PYTHON_USEDEP}]
         dev-python/setuptools[${PYTHON_USEDEP}]
+        dev-python/distlib[${PYTHON_USEDEP}]
         test? ( dev-python/flake8 )
         test? ( dev-pyton/flake8-import-order )
         test? ( dev-python/mock )

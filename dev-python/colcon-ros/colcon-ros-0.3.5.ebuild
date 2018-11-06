@@ -16,7 +16,8 @@ IUSE="test"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 		dev-python/catkin_pkg[${PYTHON_USEDEP}]
-		>=dev-python/colcon-core-0.3.1[${PYTHON_USEDEP}]
+		>=dev-python/colcon-cmake-0.2.0[${PYTHON_USEDEP}]
+		>=dev-python/colcon-core-0.3.10[${PYTHON_USEDEP}]
 		dev-python/colcon-pkg-config[${PYTHON_USEDEP}]
 		dev-python/colcon-python-setup-py[${PYTHON_USEDEP}]
 		dev-python/colcon-recursive-crawl[${PYTHON_USEDEP}]"
