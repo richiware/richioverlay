@@ -1,0 +1,18 @@
+diff --git a/bugwarrior/services/redmine.py b/bugwarrior/services/redmine.py
+index 781da66..8f5e848 100644
+--- a/bugwarrior/services/redmine.py
++++ b/bugwarrior/services/redmine.py
+@@ -154,9 +154,13 @@ class RedMineIssue(Issue):
+         if spent_hours:
+             spent_hours = str(spent_hours) + ' hours'
+             spent_hours = self.get_converted_hours(spent_hours)
++        else:
++            spent_hours = "PT1S"
+         if estimated_hours:
+             estimated_hours = str(estimated_hours) + ' hours'
+             estimated_hours = self.get_converted_hours(estimated_hours)
++        else:
++            estimated_hours = ("PT1S")
+         if category:
+             category = category['name']
+         if assigned_to:
