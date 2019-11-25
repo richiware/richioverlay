@@ -12,7 +12,7 @@ KEYWORDS="~*"
 
 DESCRIPTION="Sync github, bitbucket, and trac issues with taskwarrior"
 
-LICENSE="GPL"
+LICENSE="GPL-3"
 SLOT="0"
 IUSE="keyring jira bugzilla gmail"
 
