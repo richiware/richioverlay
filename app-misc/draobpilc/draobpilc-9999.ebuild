@@ -13,17 +13,22 @@ else
 	KEYWORDS="~amd64 ~x86 ~arm ~arm64"
 fi
 
-DESCRIPTION="GPaste GUI"
+DESCRIPTION="GUI for GPaste clipboard manager for Gnome Shell."
 HOMEPAGE="https://github.com/awamper/draobpilc"
 
-LICENSE="GPL-3.0"
+LICENSE="GPL-3"
 SLOT="0"
 
 IUSE=""
 
 DEPEND="dev-python/humanize[${PYTHON_USEDEP}]
-		dev-python/blinker[${PYTHON_USEDEP}]
-		dev-python/python3-keybinder[${PYTHON_USEDEP}]
-		dev-python/python-xlib[${PYTHON_USEDEP}]
-		"
+        dev-python/blinker[${PYTHON_USEDEP}]
+        dev-python/python3-keybinder[${PYTHON_USEDEP}]
+        dev-python/python-xlib[${PYTHON_USEDEP}]
+        >=dev-python/setuptools-30.3.0[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	distutils-r1_src_prepare
+	sed -i "s/python3-xlib/python-xlib/" setup.py || die "cannot change python3-xlib requirement"
+}
