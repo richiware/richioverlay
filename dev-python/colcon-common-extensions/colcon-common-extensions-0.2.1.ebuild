@@ -32,6 +32,7 @@ DEPEND="dev-python/colcon-argcomplete[${PYTHON_USEDEP}]
 		dev-python/colcon-powershell[${PYTHON_USEDEP}]
 		dev-python/colcon-python-setup-py[${PYTHON_USEDEP}]
 		dev-python/colcon-recursive-crawl[${PYTHON_USEDEP}]
+		dev-python/colcon-ros[${PYTHON_USEDEP}]
 		dev-python/colcon-test-result[${PYTHON_USEDEP}]
 		dev-python/colcon-zsh[${PYTHON_USEDEP}]
 		"
