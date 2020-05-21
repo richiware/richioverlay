@@ -1,0 +1,13 @@
+Index: gnucash-3.8/CMakeLists.txt
+===================================================================
+--- gnucash-3.8.orig/CMakeLists.txt
++++ gnucash-3.8/CMakeLists.txt
+@@ -581,7 +581,7 @@ endif()
+ add_definitions(-D_GNU_SOURCE)
+ 
+ # Also, set the C++ version to c++11
+-set(CMAKE_CXX_FLAGS "-std=gnu++11 ${CMAKE_CXX_FLAGS}")  # FIXME: should be -std=c++11
++set(CMAKE_CXX_FLAGS "-std=gnu++17 ${CMAKE_CXX_FLAGS}")  # FIXME: should be -std=c++11
+ 
+ 
+ if (UNIX)
