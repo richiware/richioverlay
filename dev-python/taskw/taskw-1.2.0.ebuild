@@ -2,7 +2,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_{4..6}} )
+PYTHON_COMPAT=( python{3_6,3_7,3_8} )
 
 inherit distutils-r1
 
@@ -12,7 +12,7 @@ KEYWORDS="~*"
 
 DESCRIPTION="Python bindings for your taskwarrior database"
 
-LICENSE="GPL"
+LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
 
@@ -22,7 +22,6 @@ RDEPEND="dev-python/six[${PYTHON_USEDEP}]
 	dev-python/pytz[${PYTHON_USEDEP}]
 	dev-python/kitchen[${PYTHON_USEDEP}]
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
-	python_targets_python2_7? ( dev-python/ordereddict[python_targets_python2_7] )
 	app-misc/task
 "
 DEPEND="${RDEPEND}
