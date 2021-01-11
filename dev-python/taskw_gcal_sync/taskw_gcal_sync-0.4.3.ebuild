@@ -24,11 +24,11 @@ DEPEND="dev-python/arrow[${PYTHON_USEDEP}]
         dev-python/google-auth-oauthlib[${PYTHON_USEDEP}]
         dev-python/mypy[${PYTHON_USEDEP}]
         dev-python/overrides[${PYTHON_USEDEP}]
+        dev-python/pyyaml[${PYTHON_USEDEP}]
         dev-python/pytz[${PYTHON_USEDEP}]
         dev-python/rfc3339[${PYTHON_USEDEP}]
         dev-python/sh[${PYTHON_USEDEP}]
         dev-python/taskw[${PYTHON_USEDEP}]
-        dev-python/typing[${PYTHON_USEDEP}]
         "
 RDEPEND="${DEPEND}"
 
