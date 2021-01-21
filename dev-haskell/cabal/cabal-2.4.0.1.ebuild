@@ -25,11 +25,7 @@ IUSE=""
 
 RESTRICT=test # circular deps: cabal -> quickcheck -> cabal
 
-RDEPEND=">=dev-haskell/mtl-2.1:=[profile?] <dev-haskell/mtl-2.3:=[profile?]
-	>=dev-haskell/parsec-3.1.13.0:=[profile?] <dev-haskell/parsec-3.2:=[profile?]
-	>=dev-haskell/text-1.2.3.0:=[profile?] <dev-haskell/text-1.3:=[profile?]
-	>=dev-lang/ghc-7.8.2:=
-"
+RDEPEND=">=dev-lang/ghc-7.8.2:="
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${MY_P}"

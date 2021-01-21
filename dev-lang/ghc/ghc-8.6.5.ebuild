@@ -495,10 +495,6 @@ src_prepare() {
 		#eapply "${FILESDIR}"/${PN}-8.2.1_rc1-hp2ps-cross.patch
 
 		# mingw32 target
-		pushd "${S}/libraries/Win32"
-			eapply "${FILESDIR}"/${PN}-8.2.1_rc1-win32-cross-2-hack.patch # bad workaround
-		popd
-
 		bump_libs
 
 		eapply_user
