@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
@@ -22,7 +22,7 @@ BDEPEND="dev-python/versioneer[${PYTHON_USEDEP}]"
 RDEPEND=">=dev-python/jedi-0.17.0[${PYTHON_USEDEP}] <dev-python/jedi-0.18.0[${PYTHON_USEDEP}]
 	dev-python/pluggy[${PYTHON_USEDEP}]
 	>=dev-python/python-jsonrpc-server-0.3.2[${PYTHON_USEDEP}]
-	<dev-python/ujson-2.0[${PYTHON_USEDEP}]"
+	>=dev-python/ujson-3.0[${PYTHON_USEDEP}]"
 
 pkg_postinst() {
 	elog "To get additional features, optional runtime dependencies may be installed:"
