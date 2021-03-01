@@ -6,7 +6,7 @@ inherit gnome2-utils
 
 if [[ ${PV} =~ 9999$ ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/richiware/RandomwallpaperGnome3.git"
+	EGIT_REPO_URI="https://github.com/ifl0w/RandomwallpaperGnome3.git"
 	EGIT_BRANCH="develop"
 else
 	SRC_URI="https://github.com/ifl0w/RandomwallpaperGnome3/archive/v${PV}.tar.gz -> ${P}.tar.gz"
