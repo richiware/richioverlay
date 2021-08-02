@@ -24,10 +24,8 @@ IUSE=""
 
 REQUIRED_USE=""
 
-RDEPEND="dev-python/python-xlib[${PYTHON_USEDEP}]
-	dev-python/pillow[${PYTHON_USEDEP}]
+RDEPEND="dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/docopt[${PYTHON_USEDEP}]
-	dev-python/psutil[${PYTHON_USEDEP}]
 	dev-python/attrs[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}
