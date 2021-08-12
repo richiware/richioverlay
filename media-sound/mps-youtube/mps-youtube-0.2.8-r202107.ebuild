@@ -26,4 +26,5 @@ RDEPEND="
 PATCHES=(
 	"${FILESDIR}/fix-date-and-time-error.patch"
 	"${FILESDIR}/use-dict-get.patch"
+	"${FILESDIR}/keyerror-data.patch"
 )
