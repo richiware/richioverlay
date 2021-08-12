@@ -4,14 +4,8 @@
 EAPI=7
 inherit gnome2-utils
 
-if [[ ${PV} =~ 9999$ ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/alexduf/gnome-github-notifications.git"
-else
-	SRC_URI="https://github.com/alexduf/gnome-github-notifications/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/RandomWallpaperGnome3-${PV}"
-	KEYWORDS="~amd64 ~x86"
-fi
+inherit git-r3
+EGIT_REPO_URI="https://github.com/alexduf/gnome-github-notifications.git"
 
 DESCRIPTION="Integrate github's notifications within the gnome desktop environment."
 HOMEPAGE="https://github.com/alexduf/gnome-github-notifications"
