@@ -28,7 +28,7 @@ RDEPEND="
 		net-vpn/libreswan
 	)
 	gnome? (
-		x11-libs/gtk+:3
+		gui-libs/gtk:4
 		app-crypt/libsecret
 		gnome-extra/nm-applet
 	)"
@@ -54,8 +54,10 @@ src_configure() {
 		--localstatedir=/var
 		--with-pppd-plugin-dir=/usr/$(get_libdir)/pppd/${PPPD_VER}
 		$(use_with gnome)
+		--with-gtk4
 		$(use_enable static-libs static)
 	)
 
 	econf "${myeconfargs[@]}"
 }
+
