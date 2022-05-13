@@ -55,6 +55,7 @@ src_configure() {
 		--with-pppd-plugin-dir=/usr/$(get_libdir)/pppd/${PPPD_VER}
 		$(use_with gnome)
 		--with-gtk4
+		--enable-libreswan-dh2
 		$(use_enable static-libs static)
 	)
 
