@@ -1,7 +1,7 @@
 # Copyright 2018 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 EAPI=6
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{9..10} )
 
 inherit distutils-r1
 
@@ -17,7 +17,7 @@ IUSE="test"
 
 DEPEND=">=dev-python/catkin_pkg-0.4.14[${PYTHON_USEDEP}]
         >=dev-python/colcon-cmake-0.2.6[${PYTHON_USEDEP}]
-        >=dev-python/colcon-core-0.5.3[${PYTHON_USEDEP}]
+        >=dev-python/colcon-core-0.7.3[${PYTHON_USEDEP}]
         dev-python/colcon-pkg-config[${PYTHON_USEDEP}]
         >=dev-python/colcon-python-setup-py-0.2.4[${PYTHON_USEDEP}]
         dev-python/colcon-recursive-crawl[${PYTHON_USEDEP}]

@@ -1,8 +1,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{9..10} )
 
 inherit distutils-r1
 
@@ -26,6 +26,8 @@ REQUIRED_USE=""
 
 RDEPEND="dev-python/requests[${PYTHON_USEDEP}]
 	>=dev-python/taskw-0.8[${PYTHON_USEDEP}]
+	dev-python/python-email-validator[${PYTHON_USEDEP}]
+	dev-python/pydantic[${PYTHON_USEDEP}]
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	dev-python/pytz[${PYTHON_USEDEP}]
 	>=dev-python/six-1.9.0[${PYTHON_USEDEP}]
@@ -55,4 +57,9 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	eapply "${FILESDIR}"/overcome-pt0s-tw-error.patch
 	eapply_user
+}
+
+python_install() {
+    rm -r "${BUILD_DIR}"/lib/tests || die
+    distutils-r1_python_install
 }

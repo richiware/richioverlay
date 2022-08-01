@@ -1,7 +1,9 @@
 # Copyright 2018 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 EAPI=7
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{9..10} )
+
+DISTUTILS_USE_SETUPTOOLS=pyproject.toml
 
 inherit distutils-r1
 
@@ -15,5 +17,7 @@ KEYWORDS="~amd64 ~x86 ~arm ~arm64"
 
 IUSE="test"
 
-DEPEND="app-shells/powerline[${PYTHON_USEDEP}]"
+DEPEND="app-shells/powerline[${PYTHON_USEDEP}]
+        >=app-misc/task-2.4.2
+        "
 RDEPEND="${DEPEND}"
