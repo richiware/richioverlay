@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{9..10} )
 PYTHON_REQ_USE="sqlite"
 
 inherit distutils-r1
@@ -15,7 +15,6 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE="zsh-completion"
 
 RDEPEND=">=dev-python/click-3.2[${PYTHON_USEDEP}]
 	>=dev-python/click-log-0.2.0[${PYTHON_USEDEP}]
@@ -29,7 +28,7 @@ RDEPEND=">=dev-python/click-3.2[${PYTHON_USEDEP}]
 	>=dev-python/tzlocal-1.0[${PYTHON_USEDEP}]
 	<dev-python/tzlocal-3.0[${PYTHON_USEDEP}]
 	dev-python/setproctitle[${PYTHON_USEDEP}]
-	zsh-completion? ( app-shells/zsh )"
+	"
 DEPEND=">dev-python/setuptools_scm-1.12.0[${PYTHON_USEDEP}]
 	dev-python/freezegun"
 
@@ -37,8 +36,4 @@ DOCS=( AUTHORS.txt CHANGELOG.rst CONTRIBUTING.rst README.rst khal.conf.sample )
 
 src_install() {
 	distutils-r1_src_install
-	if use zsh-completion; then
-		insinto /usr/share/zsh/site-functions
-		doins misc/__khal
-	fi
 }
