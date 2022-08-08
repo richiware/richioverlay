@@ -26,7 +26,6 @@ RDEPEND=">=dev-python/click-3.2[${PYTHON_USEDEP}]
 	dev-python/configobj[${PYTHON_USEDEP}]
 	>=dev-python/atomicwrites-0.1.7[${PYTHON_USEDEP}]
 	>=dev-python/tzlocal-1.0[${PYTHON_USEDEP}]
-	<dev-python/tzlocal-3.0[${PYTHON_USEDEP}]
 	dev-python/setproctitle[${PYTHON_USEDEP}]
 	"
 DEPEND=">dev-python/setuptools_scm-1.12.0[${PYTHON_USEDEP}]
