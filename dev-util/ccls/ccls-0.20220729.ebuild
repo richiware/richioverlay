@@ -1,9 +1,9 @@
 # Copyright 2018 Chris Oboe
 # Distributed under the terms of the GNU General Public License v3
 
-EAPI=6
+EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="C/C++/ObjC language server supporting cross references, hierarchies, completion and semantic highlighting"
 HOMEPAGE="https://github.com/MaskRay/ccls"
@@ -26,5 +26,5 @@ src_configure() {
 		local mycmakeargs=(
                 -DCMAKE_PREFIX_PATH="$LLVM_ROOT"
         )
-        cmake-utils_src_configure
+        cmake_src_configure
 }
