@@ -1,5 +1,0 @@
-!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
-src_configure	/usr/local/portage/net-vpn/networkmanager-l2tp/networkmanager-l2tp-1.20.4.ebuild	/^src_configure() {$/;"	f	language:Sh
-src_configure	/usr/local/portage/net-vpn/networkmanager-l2tp/networkmanager-l2tp-1.8.0.ebuild	/^src_configure() {$/;"	f	language:Sh
-src_prepare	/usr/local/portage/net-vpn/networkmanager-l2tp/networkmanager-l2tp-1.20.4.ebuild	/^src_prepare() {$/;"	f	language:Sh
-src_prepare	/usr/local/portage/net-vpn/networkmanager-l2tp/networkmanager-l2tp-1.8.0.ebuild	/^src_prepare() {$/;"	f	language:Sh
