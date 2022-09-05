@@ -1,7 +1,7 @@
 # Copyright 2018 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 EAPI=6
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{9..10} )
 
 inherit distutils-r1
 
@@ -21,9 +21,9 @@ SLOT="0"
 
 IUSE=""
 
-DEPEND="dev-python/flask[${PYTHON_USEDEP}]
+DEPEND=">=dev-python/flask-2.1.1[${PYTHON_USEDEP}]
 		dev-python/docutils[${PYTHON_USEDEP}]
 		dev-python/pygments[${PYTHON_USEDEP}]
-		dev-python/flask-socketio[${PYTHON_USEDEP}]
+		>=dev-python/flask-socketio-5.1.1[${PYTHON_USEDEP}]
 		"
 RDEPEND="${DEPEND}"
