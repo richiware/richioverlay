@@ -19,5 +19,9 @@ IUSE=""
 
 RDEPEND="
 	app-text/pandoc
-	dev-python/pandocfilters
+	dev-python/pandocfilters[${PYTHON_USEDEP}]
+	"
+
+BDEPENDS="
+	dev-python/setuptools[${PYTHON_USEDEP}]
 	"
