@@ -1,9 +1,9 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-VALA_MIN_API_VERSION="0.30"
+VALA_MIN_API_VERSION="0.42"
 VALA_USE_DEPEND="vapigen"
 
 inherit meson vala gnome2-utils
@@ -23,20 +23,20 @@ REQUIRED_USE="
 
 DEPEND="
 	dev-libs/appstream-glib
-	>=dev-libs/glib-2.48:2
+	>=dev-libs/glib-2.7:2
 	sys-apps/dbus
 	>=x11-libs/gdk-pixbuf-2.34:2
-	>=x11-libs/gtk+-3.20:3
+	>=x11-libs/gtk+-3.24:3
 	x11-libs/libX11
 	x11-libs/libXi
 	x11-libs/pango
 	gnome? (
-		>=x11-wm/mutter-3.38
+		>=x11-wm/mutter-41.3
 	)
 	introspection? (
 		dev-libs/gjs
 		>=dev-libs/gobject-introspection-1.48.0
-		>=x11-wm/mutter-3.38[introspection]
+		>=x11-wm/mutter-41.3[introspection]
 	)
 "
 BDEPEND="
