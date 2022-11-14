@@ -7,7 +7,7 @@ EAPI=7
 VALA_MIN_API_VERSION="0.28"
 VALA_USE_DEPEND="vapigen"
 
-inherit autotools vala gnome2
+inherit meson vala gnome2
 
 DESCRIPTION="Time management utility for GNOME based on the pomodoro technique"
 HOMEPAGE="http://gnomepomodoro.org"
@@ -42,7 +42,28 @@ $(vala_depend)
 RDEPEND="${COMMON_DEPEND}"
 
 src_prepare() {
-	eautoreconf
-	gnome2_src_prepare
 	vala_src_prepare
+	default
+}
+
+src_configure() {
+	meson_src_configure
+}
+
+src_compile() {
+	meson_src_compile
+}
+
+src_install() {
+	meson_src_install
+}
+
+pkg_postinst() {
+	gnome2_schemas_update
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
+	gnome2_schemas_update
 }
