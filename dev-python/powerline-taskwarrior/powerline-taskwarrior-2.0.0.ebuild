@@ -1,9 +1,9 @@
 # Copyright 2018 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
-EAPI=7
+EAPI=8
 PYTHON_COMPAT=( python3_{9..10} )
 
-DISTUTILS_USE_SETUPTOOLS=pyproject.toml
+DISTUTILS_USE_PEP517=poetry
 
 inherit distutils-r1
 
