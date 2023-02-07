@@ -11,7 +11,7 @@ DESCRIPTION="Generates ctags-compatible output for the sections of a Markdown do
 HOMEPAGE="https://github.com/jszakmeister/markdown2ctags"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="BSD-3"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
