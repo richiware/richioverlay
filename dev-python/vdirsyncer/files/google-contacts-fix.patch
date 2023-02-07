@@ -1,0 +1,21 @@
+From 8e6bfef02dc2a213a75776f7ea2dc50c1226a0f3 Mon Sep 17 00:00:00 2001
+From: waclaw66 <waclaw66@seznam.cz>
+Date: Thu, 8 Dec 2022 16:45:37 +0100
+Subject: [PATCH] Google Contacts discover fix
+
+---
+ vdirsyncer/cli/discover.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/vdirsyncer/cli/discover.py b/vdirsyncer/cli/discover.py
+index 70ada5d9..c28af141 100644
+--- a/vdirsyncer/cli/discover.py
++++ b/vdirsyncer/cli/discover.py
+@@ -163,6 +163,7 @@ def __init__(self, config, *, connector):
+             "CardDAVStorage",
+             "CalDAVStorage",
+             "GoogleCalendarStorage",
++            "GoogleContactsStorage",
+         ]:
+             assert connector is not None
+             config["connector"] = connector
