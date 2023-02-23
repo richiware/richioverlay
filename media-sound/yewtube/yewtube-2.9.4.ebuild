@@ -8,10 +8,10 @@ PYTHON_COMPAT=( python3_{9..10} )
 inherit distutils-r1
 
 DESCRIPTION="Terminal-based YouTube player and downloader"
-HOMEPAGE="https://github.com/iamtalhaasghar/yewtube"
+HOMEPAGE="https://github.com/mps-youtube/yewtube"
 KEYWORDS="~amd64 ~x86"
 
-SRC_URI="https://github.com/iamtalhaasghar/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
+SRC_URI="https://github.com/mps-youtube/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
