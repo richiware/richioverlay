@@ -2,7 +2,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1
 
@@ -12,8 +12,8 @@ if [[ ${PV} =~ 9999$ ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/vit-project/vit.git"
 else
-	SRC_URI="${HOMEPAGE}archive/v2.2.0b1.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/vit-2.2.0b1"
+	SRC_URI="${HOMEPAGE}archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/vit-${PV}"
 	KEYWORDS="~*"
 fi
 
