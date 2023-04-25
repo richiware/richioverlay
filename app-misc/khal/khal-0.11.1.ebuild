@@ -3,7 +3,7 @@
 
 EAPI="8"
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 PYTHON_REQ_USE="sqlite"
 
 inherit distutils-r1
@@ -19,16 +19,16 @@ SLOT="0"
 RDEPEND=">=dev-python/click-3.2[${PYTHON_USEDEP}]
 	>=dev-python/click-log-0.2.0[${PYTHON_USEDEP}]
 	>=dev-python/icalendar-4.0.3[${PYTHON_USEDEP}]
-	dev-python/urwid[${PYTHON_USEDEP}]
+	>=dev-python/urwid-1.3.0[${PYTHON_USEDEP}]
 	dev-python/pyxdg[${PYTHON_USEDEP}]
-	dev-python/pytz[${PYTHON_USEDEP}]
+	>=dev-python/pytz-2018.7[${PYTHON_USEDEP}]
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	dev-python/configobj[${PYTHON_USEDEP}]
 	>=dev-python/atomicwrites-0.1.7[${PYTHON_USEDEP}]
 	>=dev-python/tzlocal-1.0[${PYTHON_USEDEP}]
 	dev-python/setproctitle[${PYTHON_USEDEP}]
 	"
-DEPEND=">dev-python/setuptools_scm-1.12.0[${PYTHON_USEDEP}]
+DEPEND="dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	dev-python/freezegun"
 
 DOCS=( AUTHORS.txt CHANGELOG.rst CONTRIBUTING.rst README.rst khal.conf.sample )
