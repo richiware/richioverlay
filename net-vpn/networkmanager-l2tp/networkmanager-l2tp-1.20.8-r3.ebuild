@@ -5,8 +5,7 @@ EAPI=8
 
 MY_PN="NetworkManager-l2tp"
 MY_P="${MY_PN}-${PV}"
-
-inherit gnome.org
+inherit autotools gnome.org
 
 DESCRIPTION="NetworkManager L2TP plugin"
 HOMEPAGE="https://github.com/nm-l2tp/NetworkManager-l2tp"
@@ -21,7 +20,7 @@ COMMON_DEPEND="dev-libs/glib:2
 	dev-libs/nspr
 	dev-libs/nss
 	dev-libs/openssl:=
-	net-dialup/ppp:=[eap-tls]
+	net-dialup/ppp:=[eap-tls(+)]
 	net-dialup/xl2tpd
 	>=net-misc/networkmanager-1.20[ppp]
 	|| (
@@ -48,6 +47,18 @@ BDEPEND="dev-util/gdbus-codegen
 	virtual/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-ppp-2.5.0-{1,2}.patch
+	"${FILESDIR}"/${PN}-1.20.8-bashism-configure.patch
+)
+
+src_prepare() {
+	default
+
+	# For ppp-2.5.0 patch & bashism patch
+	eautoreconf
+}
 
 src_configure() {
 	local PPPD_VER=$(best_version net-dialup/ppp)
