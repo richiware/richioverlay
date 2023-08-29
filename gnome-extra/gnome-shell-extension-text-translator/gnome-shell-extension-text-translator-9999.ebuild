@@ -6,14 +6,14 @@ inherit gnome2-utils
 
 if [[ ${PV} =~ 9999$ ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/gufoe/text-translator"
+	EGIT_REPO_URI="https://github.com/robinpecha/text-translator-2023"
 else
-	SRC_URI="https://github.com/gufoe/text-translator/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/robinpecha/text-translator-2023/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Translation of the text by different translators."
-HOMEPAGE="https://github.com/gufoe/text-translator"
+HOMEPAGE="https://github.com/robinpecha/text-translator-2023"
 
 LICENSE="GPL-2"
 SLOT="0"

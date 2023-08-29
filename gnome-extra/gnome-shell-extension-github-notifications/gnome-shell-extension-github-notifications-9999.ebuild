@@ -6,7 +6,8 @@ inherit gnome2-utils
 
 inherit git-r3
 #EGIT_REPO_URI="https://github.com/alexduf/gnome-github-notifications.git"
-EGIT_REPO_URI="https://github.com/mackdk/gnome-github-manager.git"
+#EGIT_REPO_URI="https://github.com/mackdk/gnome-github-manager.git"
+EGIT_REPO_URI="https://github.com/Shelvak/gnome-github-notifications.git"
 
 DESCRIPTION="Integrate github's notifications within the gnome desktop environment."
 HOMEPAGE="https://github.com/alexduf/gnome-github-notifications"
@@ -24,19 +25,16 @@ RDEPEND="
 DEPEND=""
 BDEPEND=""
 
-extension_uuid="github.manager@mackdk.hotmail.com"
-
-src_compile() {
-	yarn --offline build || die
-}
+#extension_uuid="github.notifications@alexandre.dufournet.gmail.com"
+extension_uuid="github.notifications.v2@nestor.coppi.gmail.com"
 
 src_install() {
 	einstalldocs
 	rm -f README.md LICENSE || die
 	insinto /usr/share/glib-2.0/schemas
-	doins src/main/schemas/*.xml
+	doins schemas/*.xml
 	insinto /usr/share/gnome-shell/extensions/${extension_uuid}
-	doins -r build/*
+	doins -r *
 }
 
 pkg_preinst() {

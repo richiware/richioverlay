@@ -15,4 +15,4 @@ LICENSE="ISC"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-DEPEND=">dev-python/setuptools_scm-1.12.0[${PYTHON_USEDEP}]"
+DEPEND="dev-python/setuptools-scm[${PYTHON_USEDEP}]"
