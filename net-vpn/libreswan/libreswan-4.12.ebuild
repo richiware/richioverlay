@@ -24,7 +24,7 @@ DEPEND="
 	virtual/libcrypt:=
 	caps? ( sys-libs/libcap-ng )
 	curl? ( net-misc/curl )
-	dnssec? ( >=net-dns/unbound-1.9.1-r1:= net-libs/ldns:= )
+	dnssec? ( >=net-dns/unbound-1.9.1-r1:= net-libs/ldns:= net-dns/dnssec-root )
 	ldap? ( net-nds/openldap:= )
 	pam? ( sys-libs/pam )
 	seccomp? ( sys-libs/libseccomp )
@@ -66,6 +66,7 @@ src_configure() {
 	use elibc_musl && append-cflags -DGLIBC_KERN_FLIP_HEADERS
 
 	export PREFIX=/usr
+	export DEFAULT_DNSSEC_ROOTKEY_FILE=/etc/dnssec/icannbundle.pem
 	export FINALEXAMPLECONFDIR=/usr/share/doc/${PF}
 	export FINALDOCDIR=/usr/share/doc/${PF}/html
 	export INITSYSTEM=$(usex systemd systemd openrc)
@@ -105,7 +106,12 @@ src_test() {
 
 src_install() {
 	default
-	emake -C initsystems INITSYSTEM=systemd SYSTEMUNITDIR="$(systemd_get_systemunitdir)" SYSTEMTMPFILESDIR="/usr/lib/tmpfiles.d" DESTDIR="${D}" install
+	emake -C initsystems \
+		  INITSYSTEM=systemd \
+		  SYSTEMUNITDIR="$(systemd_get_systemunitdir)" \
+		  SYSTEMTMPFILESDIR="/usr/lib/tmpfiles.d" \
+		  DESTDIR="${D}" \
+		  install
 
 	echo "include /etc/ipsec.d/*.secrets" > "${D}"/etc/ipsec.secrets
 	fperms 0600 /etc/ipsec.secrets
