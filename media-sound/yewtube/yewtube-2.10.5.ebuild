@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit distutils-r1
 
 DESCRIPTION="Terminal-based YouTube player and downloader"
@@ -22,7 +22,7 @@ RDEPEND="
 	dev-python/pyreadline[${PYTHON_USEDEP}]
 	dev-python/pyperclip[${PYTHON_USEDEP}]
 	>=dev-python/youtube-search-python-1.6.5[${PYTHON_USEDEP}]
-	net-misc/yt-dlp[${PYTHON_USEDEP}]
+	>=net-misc/yt-dlp-2023.7.6[${PYTHON_USEDEP}]
 	mpris? (
 		>=dev-python/dbus-python-1.2.18[${PYTHON_USEDEP}]
 		>=dev-python/pygobject-3.42.0[${PYTHON_USEDEP}]
