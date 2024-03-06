@@ -24,6 +24,11 @@ IUSE="zsh-completion bash-completion"
 RDEPEND="dev-libs/openssl:0"
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+	eapply "${FILESDIR}"/suppress-openssl-pbkdf2-warnings.patch
+	eapply_user
+}
+
 src_install() {
 	dobin transcrypt
 	doman man/transcrypt.1
