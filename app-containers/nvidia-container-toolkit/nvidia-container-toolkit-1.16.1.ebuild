@@ -10,23 +10,15 @@ inherit go-module
 DESCRIPTION="NVIDIA container runtime toolkit"
 HOMEPAGE="https://github.com/NVIDIA/nvidia-container-toolkit"
 
-if [[ "${PV}" == "9999" ]] ; then
+if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/NVIDIA/${PN}.git"
 	inherit git-r3
-
-	src_unpack() {
-		git-r3_src_unpack
-		go-module_live_vendor
-	}
 else
 	SRC_URI="
 		https://github.com/NVIDIA/${PN}/archive/v${PV/_rc/-rc.}.tar.gz -> ${P}.tar.gz
-		https://github.com/vowstar/gentoo-go-deps/releases/download/${P}/${P}-deps.tar.xz
-		https://github.com/vowstar/gentoo-go-deps/releases/download/${P}/${P}-vendor.tar.xz
 	"
 	S="${WORKDIR}/${PN}-${PV/_rc/-rc.}"
 	KEYWORDS="~amd64"
-	RESTRICT="mirror"
 fi
 
 LICENSE="Apache-2.0"
@@ -39,12 +31,9 @@ RDEPEND="
 	sys-libs/libnvidia-container:0/${PV}
 "
 
-DEPEND="${RDEPEND}"
-
-BDEPEND="
-	app-arch/unzip
-	dev-build/make
-"
+PATCHES=(
+	"${FILESDIR}/extldflags-1.16.1.patch"
+)
 
 src_compile() {
 	emake binaries
@@ -52,7 +41,10 @@ src_compile() {
 
 src_install() {
 	# Fixed by https://github.com/vizv
+	dobin "nvidia-cdi-hook"
 	dobin "nvidia-container-runtime"
+	dobin "nvidia-container-runtime.cdi"
+	dobin "nvidia-container-runtime.legacy"
 	dobin "nvidia-container-runtime-hook"
 	dobin "nvidia-ctk"
 	insinto "/etc/nvidia-container-runtime"

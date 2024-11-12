@@ -9,18 +9,20 @@ NVMODV="550.54.14"
 DESCRIPTION="NVIDIA container runtime library"
 HOMEPAGE="https://github.com/NVIDIA/libnvidia-container"
 
-if [[ "${PV}" == "9999" ]] ; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/NVIDIA/${PN}.git"
 else
 	SRC_URI="
 		https://github.com/NVIDIA/${PN}/archive/v${PV/_rc/-rc.}.tar.gz -> ${P}.tar.gz
-		https://github.com/NVIDIA/nvidia-modprobe/archive/${NVMODV}.tar.gz -> ${PN}-nvidia-modprobe-${NVMODV}.tar.gz
 	"
 	S="${WORKDIR}/${PN}-${PV/_rc/-rc.}"
-	NVMODS="${WORKDIR}/nvidia-modprobe-${NVMODV}"
 	KEYWORDS="~amd64"
 fi
+NVMODS="${WORKDIR}/nvidia-modprobe-${NVMODV}"
+SRC_URI+="
+	https://github.com/NVIDIA/nvidia-modprobe/archive/${NVMODV}.tar.gz -> ${PN}-nvidia-modprobe-${NVMODV}.tar.gz
+"
 
 LICENSE="Apache-2.0"
 SLOT="0/${PV}"
@@ -48,7 +50,14 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.14.6-fix-makefile.patch
 )
 
-DOCS=( COPYING COPYING.LESSER LICENSE NOTICE README.md)
+DOCS=(COPYING COPYING.LESSER LICENSE NOTICE README.md)
+
+src_unpack() {
+	default_src_unpack
+	if [[ "${PV}" == "9999" ]]; then
+		git-r3_src_unpack
+	fi
+}
 
 src_prepare() {
 	# nvidia-modprobe patching based on libnvidia-container/mk/nvidia-modprobe.mk
@@ -65,7 +74,7 @@ src_prepare() {
 src_compile() {
 	export GOPATH="${S}"
 	export GOFLAGS="-mod=vendor"
-	IFS='_' read -r MY_LIB_VERSION MY_LIB_TAG <<< "${PV}"
+	IFS='_' read -r MY_LIB_VERSION MY_LIB_TAG <<<"${PV}"
 	emake \
 		CGO_CFLAGS="${CFLAGS}" \
 		CGO_LDFLAGS="${LDFLAGS}" \
@@ -86,11 +95,11 @@ src_install() {
 		DESTDIR="${D}" \
 		install
 	# Install docs
-	if use doc ; then
+	if use doc; then
 		einstalldocs # Bug 831705
 	fi
 	# Cleanup static libraries
-	if ! use static-libs ; then
+	if ! use static-libs; then
 		find "${ED}" -name '*.a' -delete || die # Bug 783984
 	fi
 }
