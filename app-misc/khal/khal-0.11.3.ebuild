@@ -19,6 +19,7 @@ SLOT="0"
 RDEPEND=">=dev-python/click-3.2[${PYTHON_USEDEP}]
 	>=dev-python/click-log-0.2.0[${PYTHON_USEDEP}]
 	>=dev-python/icalendar-4.0.3[${PYTHON_USEDEP}]
+	<dev-python/icalendar-6.0.0[${PYTHON_USEDEP}]
 	>=dev-python/urwid-1.3.0[${PYTHON_USEDEP}]
 	dev-python/pyxdg[${PYTHON_USEDEP}]
 	>=dev-python/pytz-2018.7[${PYTHON_USEDEP}]
