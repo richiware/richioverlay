@@ -2,21 +2,20 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=(python3_{11..13})
 
 inherit distutils-r1
 
 HOMEPAGE="https://github.com/vit-project/vit/"
 
 if [[ ${PV} =~ 9999$ ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/vit-project/vit.git"
+    inherit git-r3
+    EGIT_REPO_URI="https://github.com/vit-project/vit.git"
 else
-	SRC_URI="${HOMEPAGE}archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/vit-${PV}"
-	KEYWORDS="~*"
+    SRC_URI="${HOMEPAGE}archive/v${PV}.tar.gz -> ${P}.tar.gz"
+    S="${WORKDIR}/vit-${PV}"
+    KEYWORDS="~*"
 fi
-
 
 DESCRIPTION="Visual Interactive Taskwarrior full-screen terminal interface."
 
