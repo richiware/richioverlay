@@ -49,29 +49,28 @@ BDEPEND="dev-util/gdbus-codegen
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
-	default
+    default
 
-	# For ppp-2.5.0 patch & bashism patch
-	eautoreconf
+    # For ppp-2.5.0 patch & bashism patch
+    eautoreconf
 }
 
 src_configure() {
-	local PPPD_VER=$(best_version net-dialup/ppp)
-	PPPD_VER=${PPPD_VER#*/*-} # reduce it to ${PV}-${PR}
-	PPPD_VER=${PPPD_VER%%[_-]*} # main version without beta/pre/patch/revision
+    local PPPD_VER=$(best_version net-dialup/ppp)
+    PPPD_VER=${PPPD_VER#*/*-}   # reduce it to ${PV}-${PR}
+    PPPD_VER=${PPPD_VER%%[_-]*} # main version without beta/pre/patch/revision
 
-	local myeconfargs=(
-		--localstatedir=/var
-		--with-pppd-plugin-dir=/usr/$(get_libdir)/pppd/${PPPD_VER}
-		$(use_with gtk gnome)
-		--with-gtk4
-		--enable-libreswan-dh2
-	)
+    local myeconfargs=(
+        --localstatedir=/var
+        --with-pppd-plugin-dir=/usr/$(get_libdir)/pppd/${PPPD_VER}
+        $(use_with gtk gnome)
+        --with-gtk4
+    )
 
-	econf "${myeconfargs[@]}"
+    econf "${myeconfargs[@]}"
 }
 
 src_install() {
-	default
-	find "${ED}" -name '*.la' -delete || die
+    default
+    find "${ED}" -name '*.la' -delete || die
 }
