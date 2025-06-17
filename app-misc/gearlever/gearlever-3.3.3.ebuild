@@ -18,6 +18,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
+    app-arch/7zip
     app-arch/p7zip
 	>=dev-python/dbus-python-1.2.18[${PYTHON_USEDEP}]
 	>=dev-python/pyxdg-0.28[${PYTHON_USEDEP}]
