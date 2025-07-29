@@ -1,30 +1,36 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 EGO_PN=github.com/NightWolf007/${PN}
 
-if [[ ${PV} = *9999* ]]; then
-	inherit golang-vcs
-else
-	KEYWORDS="~amd64 ~arm ~arm64"
-	EGIT_COMMIT="v${PV}"
-	SRC_URI="https://${EGO_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-	inherit golang-vcs-snapshot
-fi
-inherit golang-build
+inherit go-module
 
 DESCRIPTION="Command-line tool for adding icons to filenames"
 HOMEPAGE="https://github.com/NightWolf007/izer"
+
+EGIT_COMMIT="v${PV}"
+SRC_URI="https://${EGO_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64"
 IUSE=""
-DEPEND="
-	dev-go/aurora
-	dev-go/cobra
-"
-RDEPEND=""
+
+RESTRICT+="strip"
+
+BDEPEND=">=dev-lang/go-1.22"
+
+src_unpack() {
+    default
+    tar xJf "${FILESDIR}/${P}-vendor.tar.xz" || die
+    tar xJf "${FILESDIR}/${P}-deps.tar.xz" || die
+}
+
+src_compile() {
+    ego build
+}
 
 src_install() {
-	dobin izer
+    dobin izer
 }
