@@ -1,16 +1,17 @@
 # Copyright 2018 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=(python3_{10..14})
 
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 if [[ ${PV} =~ 9999$ ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/awamper/draobpilc.git"
+    inherit git-r3
+    EGIT_REPO_URI="https://github.com/awamper/draobpilc.git"
 else
-	SRC_URI="https://github.com/awamper/${PN}/archive/${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
-	KEYWORDS="~amd64 ~x86 ~arm ~arm64"
+    SRC_URI="https://github.com/awamper/${PN}/archive/${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
+    KEYWORDS="~amd64 ~x86 ~arm ~arm64"
 fi
 
 DESCRIPTION="GUI for GPaste clipboard manager for Gnome Shell."
@@ -29,6 +30,6 @@ DEPEND="dev-python/humanize[${PYTHON_USEDEP}]
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	distutils-r1_src_prepare
-	sed -i "s/python3-xlib/python-xlib/" setup.py || die "cannot change python3-xlib requirement"
+    distutils-r1_src_prepare
+    sed -i "s/python3-xlib/python-xlib/" setup.py || die "cannot change python3-xlib requirement"
 }
