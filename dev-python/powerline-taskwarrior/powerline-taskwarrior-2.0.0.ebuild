@@ -1,9 +1,9 @@
 # Copyright 2018 Open Source Robotics Foundation
 # Distributed under the terms of the BSD license
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
 
 DISTUTILS_USE_PEP517=poetry
+PYTHON_COMPAT=(python3_{10..14})
 
 inherit distutils-r1
 

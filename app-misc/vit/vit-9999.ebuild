@@ -2,16 +2,17 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=(python3_{11..14})
 
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 if [[ ${PV} =~ 9999$ ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/vit-project/vit.git"
+    inherit git-r3
+    EGIT_REPO_URI="https://github.com/vit-project/vit.git"
 else
-	SRC_URI="${HOMEPAGE}archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~*"
+    SRC_URI="${HOMEPAGE}archive/v${PV}.tar.gz -> ${P}.tar.gz"
+    KEYWORDS="~*"
 fi
 
 HOMEPAGE="https://github.com/vit-project/vit/"
