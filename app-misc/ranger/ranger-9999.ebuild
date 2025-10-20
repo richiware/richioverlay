@@ -11,7 +11,8 @@ inherit distutils-r1 xdg
 
 if [[ ${PV} == 9999 ]]; then
     inherit git-r3
-    EGIT_REPO_URI="https://github.com/Ethsan/ranger.git"
+    EGIT_REPO_URI="https://github.com/l4zygreed/ranger.git"
+    EGIT_COMMIT="7076abb" # feat/kitty_in_tmux
 else
     SRC_URI="
 		https://github.com/ranger/ranger/archive/v${PV}.tar.gz
