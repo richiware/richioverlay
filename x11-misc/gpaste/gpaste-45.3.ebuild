@@ -1,9 +1,10 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+# Source: =x11-misc/gpaste-3.42.5 from default Gentoo overlay
 
-VALA_MIN_API_VERSION="0.42"
+EAPI=8
+
 VALA_USE_DEPEND="vapigen"
 
 inherit meson vala gnome2-utils
@@ -11,6 +12,8 @@ inherit meson vala gnome2-utils
 DESCRIPTION="Clipboard management system"
 HOMEPAGE="https://github.com/Keruspe/GPaste"
 SRC_URI="https://github.com/Keruspe/GPaste/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
+S="${WORKDIR}/GPaste-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -59,32 +62,30 @@ RDEPEND="${DEPEND}
 	)
 "
 
-S="${WORKDIR}/GPaste-${PV}"
-
 src_prepare() {
-	use vala && vala_src_prepare
-	default
+    use vala && vala_src_prepare
+    default
 }
 
 src_configure() {
-	local emesonargs=(
-		$(meson_use systemd systemd)
-		-Dbash-completion=true
-		-Dzsh-completion=true
-		-Dx-keybinder=true
-		-Dcontrol-center-keybindings-dir=$(usex gnome '' \
-		'/usr/share/gnome-control-center/keybindings')
-		$(meson_use introspection introspection)
-		$(meson_use vala vapi)
-		$(meson_use gnome gnome-shell)
-	)
-	meson_src_configure
+    local emesonargs=(
+        $(meson_use systemd systemd)
+        -Dbash-completion=true
+        -Dzsh-completion=true
+        -Dx-keybinder=true
+        -Dcontrol-center-keybindings-dir=$(usex gnome '' \
+            '/usr/share/gnome-control-center/keybindings')
+        $(meson_use introspection introspection)
+        $(meson_use vala vapi)
+        $(meson_use gnome gnome-shell)
+    )
+    meson_src_configure
 }
 
 pkg_postinst() {
-	gnome2_schemas_update
+    gnome2_schemas_update
 }
 
 pkg_postrm() {
-	gnome2_schemas_update
+    gnome2_schemas_update
 }
