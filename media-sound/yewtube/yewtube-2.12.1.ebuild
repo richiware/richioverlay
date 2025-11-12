@@ -11,7 +11,13 @@ DESCRIPTION="Terminal-based YouTube player and downloader"
 HOMEPAGE="https://github.com/mps-youtube/yewtube"
 KEYWORDS="~amd64 ~x86"
 
-SRC_URI="https://github.com/mps-youtube/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
+if [[ ${PV} == "9999" ]]; then
+    EGIT_REPO_URI="https://github.com/mps-youtube/yewtube.git"
+    inherit git-r3
+else
+    SRC_URI="https://github.com/mps-youtube/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
+    KEYWORDS="~amd64"
+fi
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -22,9 +28,19 @@ RDEPEND="
 	dev-python/pyreadline[${PYTHON_USEDEP}]
 	dev-python/pyperclip[${PYTHON_USEDEP}]
 	>=dev-python/youtube-search-python-1.6.5[${PYTHON_USEDEP}]
-	>=net-misc/yt-dlp-2023.7.6[${PYTHON_USEDEP}]
+	>=net-misc/yt-dlp-2023.9.24[${PYTHON_USEDEP}]
+	dev-python/pylast[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
 	mpris? (
 		>=dev-python/dbus-python-1.2.18[${PYTHON_USEDEP}]
 		>=dev-python/pygobject-3.42.0[${PYTHON_USEDEP}]
 	)
+	|| ( media-video/mplayer media-video/mpv )
 "
+
+src_prepare() {
+    # bug #939186
+    sed -i 's/from pip\._vendor //' mps_youtube/__init__.py || die
+
+    distutils-r1_src_prepare
+}
