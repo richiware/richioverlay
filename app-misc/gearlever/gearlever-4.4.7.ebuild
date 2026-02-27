@@ -21,6 +21,9 @@ RDEPEND="
     app-arch/7zip
 	>=dev-python/dbus-python-1.2.18[${PYTHON_USEDEP}]
 	>=dev-python/pyxdg-0.28[${PYTHON_USEDEP}]
+    >=dev-python/ftputil-5.1.0[${PYTHON_USEDEP}]
+    >=dev-python/requests-2.25.2[${PYTHON_USEDEP}]
+    >=dev-python/desktop-entry-lib-5.0[${PYTHON_USEDEP}]
 	"
 
 BDEPENDS="
