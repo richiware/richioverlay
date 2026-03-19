@@ -12,6 +12,7 @@ inherit meson vala gnome2
 DESCRIPTION="Time management utility for GNOME based on the pomodoro technique"
 HOMEPAGE="http://gnomepomodoro.org"
 SRC_URI="https://github.com/gnome-pomodoro/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/FocusTimer-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -22,13 +23,13 @@ COMMON_DEPEND="
 dev-libs/dbus-glib
 >=dev-libs/glib-2.38:2
 >=dev-libs/gobject-introspection-1.36
->=dev-libs/libpeas-1.5.0
+>=dev-libs/libpeas-2.0.0[vala]
 >=gnome-base/gnome-desktop-3.14.0:3
 >=gnome-base/gsettings-desktop-schemas-3.14.0
 >=media-libs/gstreamer-1.0.10
 >=media-libs/libcanberra-0.30
 >=net-libs/telepathy-glib-0.17.5
->=x11-libs/gtk+-3.14.0:3=[introspection]
+>=x11-libs/gtk+-3.20.0:3=[introspection]
 "
 
 DEPEND="${COMMON_DEPEND}
@@ -42,28 +43,28 @@ $(vala_depend)
 RDEPEND="${COMMON_DEPEND}"
 
 src_prepare() {
-	vala_src_prepare
-	default
+    vala_src_prepare
+    default
 }
 
 src_configure() {
-	meson_src_configure
+    meson_src_configure
 }
 
 src_compile() {
-	meson_src_compile
+    meson_src_compile
 }
 
 src_install() {
-	meson_src_install
+    meson_src_install
 }
 
 pkg_postinst() {
-	gnome2_schemas_update
-	xdg_icon_cache_update
+    gnome2_schemas_update
+    xdg_icon_cache_update
 }
 
 pkg_postrm() {
-	xdg_icon_cache_update
-	gnome2_schemas_update
+    xdg_icon_cache_update
+    gnome2_schemas_update
 }
